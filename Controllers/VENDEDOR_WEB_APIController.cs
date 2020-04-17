@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -95,8 +96,14 @@ namespace WebAppMVC.Controllers
         }
 
         // PUT: api/VENDEDOR_WEB_API/5
-        public void Put(int id, [FromBody]string value)
+        public VENDEDOR Put(int id, [FromBody]VENDEDOR value)
         {
+
+            db.Entry(value).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return value;
+
         }
 
         // DELETE: api/VENDEDOR_WEB_API/5
@@ -107,7 +114,8 @@ namespace WebAppMVC.Controllers
                 db.SaveChanges();
                 return true;
 
-            }
+            
         }
+
     }
 }

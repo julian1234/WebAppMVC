@@ -83,8 +83,8 @@ namespace WebAppMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vENDEDOR).State = EntityState.Modified;
-                db.SaveChanges();
+
+                var resultapi = api.Post(vENDEDOR);
                 return RedirectToAction("Index");
             }
             ViewBag.CODIGO_CIUDAD = new SelectList(db.CIUDAD, "CODIGO", "DESCRIPCION", vENDEDOR.CODIGO_CIUDAD);
