@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<WebAppMVC.Models.VENDEDOR>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PRUEBA TÉCNICA";
 }
 
-<h2>Index</h2>
-
+<h2>PRUEBA TÉCNICA ELEMPLEO.COM </h2>
+<br />
+<br />
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Crear Vendedor", "Create")
 </p>
 <table class="table">
     <tr>
@@ -26,26 +27,27 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.APELLIDO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NUMERO_IDENTIFICACION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CIUDAD.DESCRIPCION)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CODIGO }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CODIGO }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CODIGO })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMBRE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.APELLIDO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NUMERO_IDENTIFICACION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CIUDAD.DESCRIPCION)
+            </td>
+            <td>
+                @Html.ActionLink("Editar Vendedor", "Edit", new { id = item.CODIGO }) |
+                @Html.ActionLink("Detalle Vendedor", "Details", new { id = item.CODIGO }) |
+                @Html.ActionLink("Borrar Vendedor", "Delete", new { id = item.CODIGO })
+            </td>
+        </tr>
+    }
 
 </table>

@@ -1,11 +1,12 @@
 ﻿@model WebAppMVC.Models.VENDEDOR
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalle Vendedor";
 }
 
-<h2>Details</h2>
-
+<h2>Detalle del vendedor</h2>
+<br />
+<br />
 <div>
     <h4>VENDEDOR</h4>
     <hr />
@@ -45,6 +46,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CODIGO }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.CODIGO }) |
+    @Html.ActionLink("Regresar al menu principal", "Index")
 </p>

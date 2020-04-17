@@ -1,16 +1,17 @@
 ﻿@model WebAppMVC.Models.VENDEDOR
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Editar Vendedor";
 }
 
-<h2>Edit</h2>
-
+<h2>Editar Vendedor</h2>
+<br />
+<br />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>VENDEDOR</h4>
         <hr />
@@ -58,7 +59,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Regresar al menu principal", "Index")
 </div>
 
 @section Scripts {
