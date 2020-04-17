@@ -12,28 +12,24 @@ namespace WebAppMVC.Controllers
 {
     public class VENDEDORController : Controller
     {
-        private DB_A56C50_admin759Entities db = new DB_A56C50_admin759Entities();
+        public DB_A56C50_admin759Entities db = new DB_A56C50_admin759Entities();
+        public VENDEDOR_WEB_APIController api = new VENDEDOR_WEB_APIController();
 
         // GET: VENDEDOR
         public ActionResult Index()
         {
-            var vENDEDOR = db.VENDEDOR.Include(v => v.CIUDAD);
-            return View(vENDEDOR.ToList());
+            var resultapi = api.Get();
+            return View(resultapi);    
         }
 
         // GET: VENDEDOR/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            VENDEDOR vENDEDOR = db.VENDEDOR.Find(id);
-            if (vENDEDOR == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vENDEDOR);
+
+            var resultapi = api.Get(id);
+            return View(resultapi);
+
+          
         }
 
         // GET: VENDEDOR/Create
@@ -52,8 +48,9 @@ namespace WebAppMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.VENDEDOR.Add(vENDEDOR);
-                db.SaveChanges();
+                var resultapi = api.Post(vENDEDOR);
+                //db.VENDEDOR.Add(vENDEDOR);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
