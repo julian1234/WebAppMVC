@@ -21,6 +21,7 @@ namespace WebAppMVC.Controllers
         {
 
             List<VENDEDOR> li = new List<VENDEDOR>();
+            li.Clear();
 
             var result = db.VENDEDOR.Where(x => x.CODIGO > 0).ToList();
            
@@ -96,7 +97,7 @@ namespace WebAppMVC.Controllers
         }
 
         // PUT: api/VENDEDOR_WEB_API/5
-        public VENDEDOR Put(int id, [FromBody]VENDEDOR value)
+        public VENDEDOR Put([FromBody]VENDEDOR value)
         {
 
             db.Entry(value).State = EntityState.Modified;
