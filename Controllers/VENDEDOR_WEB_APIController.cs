@@ -100,8 +100,14 @@ namespace WebAppMVC.Controllers
         }
 
         // DELETE: api/VENDEDOR_WEB_API/5
-        public void Delete(int id)
+        public bool Delete(int id)
         {
+                var customer = db.VENDEDOR.Single(o => o.CODIGO == id);
+                db.VENDEDOR.Remove(customer);
+                db.SaveChanges();
+                return true;
+
+            }
         }
     }
 }

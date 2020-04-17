@@ -111,10 +111,10 @@ namespace WebAppMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            VENDEDOR vENDEDOR = db.VENDEDOR.Find(id);
-            db.VENDEDOR.Remove(vENDEDOR);
-            db.SaveChanges();
+
+            var resultapi = api.Delete(id);
             return RedirectToAction("Index");
+        
         }
 
         protected override void Dispose(bool disposing)
