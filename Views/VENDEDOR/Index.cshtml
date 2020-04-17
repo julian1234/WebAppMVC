@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebAppMVC.Models.VENDEDOR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.APELLIDO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NUMERO_IDENTIFICACION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CIUDAD.DESCRIPCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.APELLIDO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NUMERO_IDENTIFICACION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CIUDAD.DESCRIPCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CODIGO }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CODIGO }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CODIGO })
+        </td>
+    </tr>
+}
+
+</table>
